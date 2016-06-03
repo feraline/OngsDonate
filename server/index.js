@@ -17,7 +17,7 @@
 const chalk = require('chalk');
 var cluster = require('cluster');
 var RSMQWorker = require( "rsmq-worker" );
-var worker = new RSMQWorker( "myqueue" );
+
 
 var log = console.log;
 
@@ -31,16 +31,19 @@ if (cluster.isMaster) {
   rsmq.createQueue({qname:"myqueue"}, function (err, resp) {
         if (resp===1) {
             log(chalk.green("Note queue created!"));
-        }else{
-            log(chalk.yellow("Note queue already created!"));
+        }
+        if(err){
+            log(chalk.yellow(err));
         }
   });
 
   log(chalk.yellow('Server is active. Forking workers now.'));
   var cpuCount = require('os').cpus().length;
-  for (var i=0; i<cpuCount; i++) {
+  for (var i=1; i<=cpuCount; i++) {
+    var worker = new RSMQWorker( "myqueue" );
     worker.on( "message", function( msg, next ){
         // process your message
+        //request API para mandar a nota
         next()
     });
 
@@ -58,6 +61,7 @@ if (cluster.isMaster) {
     });
 
     worker.start();
+    log(chalk.green('#Worker - '+i+' - ready to work!'));
   }
 } else {
   var restify = require('restify')
