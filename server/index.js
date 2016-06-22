@@ -17,7 +17,6 @@
 const chalk = require('chalk');
 var cluster = require('cluster');
 var RSMQWorker = require( "rsmq-worker" );
-var worker = new RSMQWorker( "myqueue" );
 
 var log = console.log;
 
@@ -31,35 +30,27 @@ if (cluster.isMaster) {
   rsmq.createQueue({qname:"myqueue"}, function (err, resp) {
         if (resp===1) {
             log(chalk.green("Note queue created!"));
+            log(chalk.green("Connected!"));
         }else{
             log(chalk.yellow("Note queue already created!"));
+            log(chalk.green("Connected!"));
         }
   });
 
   log(chalk.yellow('Server is active. Forking workers now.'));
   var cpuCount = require('os').cpus().length;
-  for (var i=0; i<cpuCount; i++) {
-    worker.on( "message", function( msg, next ){
-        // process your message
-        next()
-    });
 
-    // optional error listeners
-    worker.on('error', function( err, msg ){
-      console.log( "ERROR", err, msg.id );
-    });
-
-    worker.on('exceeded', function( msg ){
-      console.log( "EXCEEDED", msg.id );
-    });
-
-    worker.on('timeout', function( msg ){
-      console.log( "TIMEOUT", msg.id, msg.rc );
-    });
-
-    worker.start();
+  for (var i=0; i<cpuCount; i++)
+  {
+    cluster.fork();
   }
+  cluster.on('exit', function(worker)
+  {
+    console.error('Worker %s has died! Creating a new one.', worker.id);
+    cluster.fork();
+  });
 } else {
+
   var restify = require('restify')
     , server  = restify.createServer({name:'Node.js Sample Server', version: "1.0.0"})
     , port    = (process.env.PORT || 8088)
@@ -71,7 +62,30 @@ if (cluster.isMaster) {
   server.use(restify.queryParser());
   server.use(restify.bodyParser());
 
+    var worker = new RSMQWorker( "myqueue",{
+        autostart: true            // start worker on init
+    } );
+
+    worker.on( "message", function( msg, next, id ){
+      // process your message
+      console.log("Message id : " + id);
+      console.log(msg);
+      console.log("Receive from Worker %s", cluster.worker.id);
+      next()
+    });
+
+    // optional error listeners
+    worker.on('error', function( err, msg ){
+        console.log( "ERROR", err, msg.id );
+    });
+    worker.on('exceeded', function( msg ){
+        console.log( "EXCEEDED", msg.id );
+    });
+    worker.on('timeout', function( msg ){
+        console.log( "TIMEOUT", msg.id, msg.rc );
+    });
+
   server.listen(port, function() {
-    log(chalk.green('Worker %s spawned for port %s.'), cluster.worker.id, port);
+    log(chalk.green('Worker %s spawned for port %s.'), cluster.worker.id ,port);
   });
 }
