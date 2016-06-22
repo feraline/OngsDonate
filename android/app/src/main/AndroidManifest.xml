@@ -19,10 +19,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".MenuActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.Transparent">
+        </activity>
+        <activity
+            android:name=".ShareActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.Transparent">
         </activity>
     </application>
 
