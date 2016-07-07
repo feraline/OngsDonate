@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class ODRedFilledButton: ODFilledButton {
+    
     //MARK: - Override
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,7 +19,13 @@ class ODRedFilledButton: ODFilledButton {
     }
     
     private func setupUI() {
-        self.backgroundColor = UIColor.ODRedColor()
-        self.tintColor = UIColor.whiteColor()
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor.ODRedColor().CGColor
+        
+        self.setBackgroundImage(UIImage.fromColor(UIColor.ODRedColor()), forState: .Normal)
+        self.setBackgroundImage(UIImage.fromColor(UIColor.clearColor()), forState: .Disabled)
+        
+        self.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        self.setTitleColor(UIColor.ODRedColor(), forState: .Disabled)
     }
 }

@@ -393,6 +393,7 @@
                                 <state key="normal" title="Button" image="Close"/>
                                 <connections>
                                     <action selector="close:" destination="9pv-A4-QxB" eventType="touchUpInside" id="FWx-fJ-Fgi"/>
+                                    <action selector="close:" destination="CDM-xk-tyG" eventType="touchUpInside" id="lxX-lr-P40"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DÊ UM SHARE EM SUAS REDES SOCIAIS!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRJ-pE-ub1" customClass="ODLabelRedBigTitle" customModule="OngsDonate" customModuleProvider="target">
@@ -401,35 +402,136 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ld4-iE-sIH" customClass="ODRedFilledButton" customModule="OngsDonate" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ld4-iE-sIH" customClass="ODRedFilledButton" customModule="OngsDonate" customModuleProvider="target">
                                 <rect key="frame" x="30" y="481" width="540" height="50"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="540" id="Lkz-hH-eDE"/>
                                     <constraint firstAttribute="height" constant="50" id="cfQ-vb-yfk"/>
                                 </constraints>
                                 <state key="normal" title="SHARE"/>
                             </button>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LINKEDIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBu-eE-2ac" customClass="ODLabelGrayBigTitle" customModule="OngsDonate" customModuleProvider="target">
+                                <rect key="frame" x="41" y="421" width="478" height="45"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="6Ax-Q4-B8a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="xtO-ps-P4y" appends="YES" id="jxZ-wU-VHA"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FACEBOOK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKO-tB-MX1" customClass="ODLabelGrayBigTitle" customModule="OngsDonate" customModuleProvider="target">
+                                <rect key="frame" x="41" y="376" width="478" height="45"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="dra-f2-vd2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="pNg-0Z-4lA" appends="YES" id="y93-Sd-LFP"/>
+                                </connections>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Check" translatesAutoresizingMaskIntoConstraints="NO" id="Sub-Yo-BTa">
+                                <rect key="frame" x="539" y="344" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="0dv-rV-MCn"/>
+                                    <constraint firstAttribute="width" constant="20" id="JV5-wd-5Yy"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Check" translatesAutoresizingMaskIntoConstraints="NO" id="C1y-7Y-Ldk">
+                                <rect key="frame" x="539" y="389" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="PPe-KZ-6ms"/>
+                                    <constraint firstAttribute="height" constant="20" id="lWV-vl-LVy"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Check" translatesAutoresizingMaskIntoConstraints="NO" id="Pgp-9V-sE7">
+                                <rect key="frame" x="539" y="434" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Reu-fl-BXz"/>
+                                    <constraint firstAttribute="width" constant="20" id="Sqr-GU-dAh"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TWITTER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7z-Kg-buB" customClass="ODLabelGrayBigTitle" customModule="OngsDonate" customModuleProvider="target">
+                                <rect key="frame" x="41" y="331" width="478" height="45"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="1Ah-eW-zQO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="TY5-z2-C02" appends="YES" id="6OJ-9U-AAM"/>
+                                </connections>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Sub-Yo-BTa" firstAttribute="centerY" secondItem="n7z-Kg-buB" secondAttribute="centerY" id="1Qq-QN-YUE"/>
                             <constraint firstItem="kRJ-pE-ub1" firstAttribute="top" secondItem="uVA-c4-PPb" secondAttribute="bottom" constant="36" id="CXu-C9-tIc"/>
                             <constraint firstItem="dZL-mN-3nD" firstAttribute="top" secondItem="ld4-iE-sIH" secondAttribute="bottom" constant="20" id="ECO-Xn-5Gd"/>
                             <constraint firstItem="kRJ-pE-ub1" firstAttribute="leading" secondItem="Xgg-E2-Rud" secondAttribute="leading" constant="41" id="FQc-s4-dv5"/>
                             <constraint firstItem="ld4-iE-sIH" firstAttribute="leading" secondItem="Xgg-E2-Rud" secondAttribute="leading" constant="30" id="H84-dN-CSo"/>
+                            <constraint firstItem="n7z-Kg-buB" firstAttribute="leading" secondItem="Xgg-E2-Rud" secondAttribute="leading" constant="41" id="Ild-rW-PTB"/>
+                            <constraint firstItem="C1y-7Y-Ldk" firstAttribute="leading" secondItem="MKO-tB-MX1" secondAttribute="trailing" constant="20" id="K1c-0u-rPr"/>
+                            <constraint firstItem="Pgp-9V-sE7" firstAttribute="leading" secondItem="VBu-eE-2ac" secondAttribute="trailing" constant="20" id="K5x-r3-tx1"/>
+                            <constraint firstAttribute="trailing" secondItem="Pgp-9V-sE7" secondAttribute="trailing" constant="41" id="PmG-OO-lct"/>
+                            <constraint firstAttribute="trailing" secondItem="C1y-7Y-Ldk" secondAttribute="trailing" constant="41" id="RLj-yk-phw"/>
+                            <constraint firstAttribute="trailing" secondItem="Sub-Yo-BTa" secondAttribute="trailing" constant="41" id="Rc0-Ch-F0N"/>
+                            <constraint firstItem="VBu-eE-2ac" firstAttribute="leading" secondItem="Xgg-E2-Rud" secondAttribute="leading" constant="41" id="SPp-62-dlG"/>
                             <constraint firstItem="uVA-c4-PPb" firstAttribute="top" secondItem="xnl-sa-2kV" secondAttribute="bottom" constant="20" id="Vv8-7B-baR"/>
+                            <constraint firstItem="MKO-tB-MX1" firstAttribute="top" secondItem="n7z-Kg-buB" secondAttribute="bottom" id="d8E-FN-rAS"/>
                             <constraint firstAttribute="trailing" secondItem="ld4-iE-sIH" secondAttribute="trailing" constant="30" id="dVN-gs-3Zk"/>
+                            <constraint firstItem="Pgp-9V-sE7" firstAttribute="centerY" secondItem="VBu-eE-2ac" secondAttribute="centerY" id="dqZ-w6-5Ue"/>
+                            <constraint firstItem="MKO-tB-MX1" firstAttribute="leading" secondItem="Xgg-E2-Rud" secondAttribute="leading" constant="41" id="e17-jt-T51"/>
+                            <constraint firstItem="VBu-eE-2ac" firstAttribute="top" secondItem="MKO-tB-MX1" secondAttribute="bottom" id="kNP-sG-aq7"/>
+                            <constraint firstItem="ld4-iE-sIH" firstAttribute="top" secondItem="VBu-eE-2ac" secondAttribute="bottom" constant="15" id="m6b-Ei-NI7"/>
+                            <constraint firstItem="C1y-7Y-Ldk" firstAttribute="centerY" secondItem="MKO-tB-MX1" secondAttribute="centerY" id="oKk-wa-Zci"/>
                             <constraint firstAttribute="trailing" secondItem="kRJ-pE-ub1" secondAttribute="trailing" constant="41" id="twv-m3-Ixx"/>
+                            <constraint firstItem="Sub-Yo-BTa" firstAttribute="leading" secondItem="n7z-Kg-buB" secondAttribute="trailing" constant="20" id="vtG-gu-YYh"/>
                             <constraint firstItem="uVA-c4-PPb" firstAttribute="leading" secondItem="Xgg-E2-Rud" secondAttribute="leading" constant="20" id="wfh-BJ-VOJ"/>
                         </constraints>
+                        <connections>
+                            <outlet property="checkFacebook" destination="C1y-7Y-Ldk" id="rw3-Yb-KJj"/>
+                            <outlet property="checkLinkedin" destination="Pgp-9V-sE7" id="dV2-AT-nr1"/>
+                            <outlet property="checkTwitter" destination="Sub-Yo-BTa" id="bPG-MK-Jqs"/>
+                            <outlet property="facebookLabel" destination="MKO-tB-MX1" id="KCT-ud-RvX"/>
+                            <outlet property="linkedinLabel" destination="VBu-eE-2ac" id="m4h-mL-bfG"/>
+                            <outlet property="shareButton" destination="ld4-iE-sIH" id="VHZ-Ei-7nW"/>
+                            <outlet property="twitterLabel" destination="n7z-Kg-buB" id="t9e-Rl-vgH"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="YHM-AR-O98"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zA6-N7-U0b" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="xtO-ps-P4y" userLabel="linkedinTap">
+                    <connections>
+                        <action selector="linkedin:" destination="CDM-xk-tyG" id="HjS-E4-c8y"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="pNg-0Z-4lA" userLabel="facebookTap">
+                    <connections>
+                        <action selector="facebook:" destination="CDM-xk-tyG" id="A0o-Jx-3xe"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="TY5-z2-C02" userLabel="twitterTap">
+                    <connections>
+                        <action selector="twitter:" destination="CDM-xk-tyG" id="Ycg-bg-rEv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="750" y="1037"/>
         </scene>
     </scenes>
     <resources>
         <image name="Camera" width="25" height="23"/>
+        <image name="Check" width="18" height="15"/>
         <image name="Close" width="17" height="17"/>
         <image name="DefaultBackground" width="320" height="568"/>
         <image name="Logo" width="132" height="132"/>

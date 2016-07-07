@@ -39,6 +39,7 @@
 		FA8027D21D28352D0000C4D4 /* ODMainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8027D11D28352D0000C4D4 /* ODMainNavigationController.swift */; };
 		FA8027D41D2836090000C4D4 /* ODControlFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8027D31D2836090000C4D4 /* ODControlFlow.swift */; };
 		FA8027D61D28390E0000C4D4 /* ODTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8027D51D28390E0000C4D4 /* ODTabBarViewController.swift */; };
+		FAD5DD1D1D2DBBFD000ED649 /* ODImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD5DD1C1D2DBBFD000ED649 /* ODImage.swift */; };
 		FADC62491D2856A700003DC7 /* ODProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC62481D2856A700003DC7 /* ODProfileImageView.swift */; };
 		FADC624B1D28582000003DC7 /* ODLabelGrayBigTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC624A1D28582000003DC7 /* ODLabelGrayBigTitle.swift */; };
 		FADC624D1D28585800003DC7 /* ODColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADC624C1D28585800003DC7 /* ODColor.swift */; };
@@ -101,6 +102,7 @@
 		FA8027D11D28352D0000C4D4 /* ODMainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODMainNavigationController.swift; sourceTree = "<group>"; };
 		FA8027D31D2836090000C4D4 /* ODControlFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODControlFlow.swift; sourceTree = "<group>"; };
 		FA8027D51D28390E0000C4D4 /* ODTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODTabBarViewController.swift; sourceTree = "<group>"; };
+		FAD5DD1C1D2DBBFD000ED649 /* ODImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODImage.swift; sourceTree = "<group>"; };
 		FADC62481D2856A700003DC7 /* ODProfileImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODProfileImageView.swift; sourceTree = "<group>"; };
 		FADC624A1D28582000003DC7 /* ODLabelGrayBigTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODLabelGrayBigTitle.swift; sourceTree = "<group>"; };
 		FADC624C1D28585800003DC7 /* ODColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODColor.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				FA8027CA1D281F080000C4D4 /* ODAttributedString.swift */,
 				FA8027C81D281D6C0000C4D4 /* ODFontName.swift */,
 				FADC624C1D28585800003DC7 /* ODColor.swift */,
+				FAD5DD1C1D2DBBFD000ED649 /* ODImage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				FADC62501D28595300003DC7 /* ODMenuViewController.swift in Sources */,
 				FADC62571D298D7100003DC7 /* ODShareViewController.swift in Sources */,
 				FA8027D41D2836090000C4D4 /* ODControlFlow.swift in Sources */,
+				FAD5DD1D1D2DBBFD000ED649 /* ODImage.swift in Sources */,
 				FA8027D61D28390E0000C4D4 /* ODTabBarViewController.swift in Sources */,
 				FADC62601D2A779900003DC7 /* ODRedFilledButton.swift in Sources */,
 				FADC624B1D28582000003DC7 /* ODLabelGrayBigTitle.swift in Sources */,
