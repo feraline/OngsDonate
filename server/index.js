@@ -1,91 +1,36 @@
 /*
- * Node.js Sample Server with Restify
- * Copyright (C) 2014 - Thiago Uriel M. Garcia
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-const chalk = require('chalk');
-var cluster = require('cluster');
-var RSMQWorker = require( "rsmq-worker" );
+* Node.js Sample Server with Restify
+* Copyright (C) 2014 - Thiago Uriel M. Garcia
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*   http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 
-var log = console.log;
+var constants 	= require('./constants.js');
+var app 		    = require('./app.config.js');
+var log 		    = require('./app/utils/log.js');
 
-if (cluster.isMaster) {
-  log(chalk.yellow('Starting redisMQ'));
+//Rota de Services
+// var services = require('./backend/routers/services.router.js');
+// app.use('/services', services);
 
-  var RedisSMQ = require("rsmq"),
-      rsmq = new RedisSMQ( {host: "localhost", port: 6379, ns: "rsmq"} );
-
-  log(chalk.yellow('Creating note queue...'));
-  rsmq.createQueue({qname:"myqueue"}, function (err, resp) {
-        if (resp===1) {
-            log(chalk.green("Note queue created!"));
-            log(chalk.green("Connected!"));
-        }else{
-            log(chalk.yellow("Note queue already created!"));
-            log(chalk.green("Connected!"));
-        }
+//Rota principal
+app.get('/', function(request, response) {
+  response.json({
+    body: {
+      result:{
+        code: 0,
+        mensagem: constants.MESSAGE_SERVER_CONNECTED
+      }
+    }
   });
-
-  log(chalk.yellow('Server is active. Forking workers now.'));
-  var cpuCount = require('os').cpus().length;
-
-  for (var i=0; i<cpuCount; i++)
-  {
-    cluster.fork();
-  }
-  cluster.on('exit', function(worker)
-  {
-    console.error('Worker %s has died! Creating a new one.', worker.id);
-    cluster.fork();
-  });
-} else {
-
-  var restify = require('restify')
-    , server  = restify.createServer({name:'Node.js Sample Server', version: "1.0.0"})
-    , port    = (process.env.PORT || 8088)
-    , routes  = require('./app/routes.js');
-
-  routes.applyRoutes(server);
-
-  server.use(restify.authorizationParser());
-  server.use(restify.queryParser());
-  server.use(restify.bodyParser());
-
-    var worker = new RSMQWorker( "myqueue",{
-        autostart: true            // start worker on init
-    } );
-
-    worker.on( "message", function( msg, next, id ){
-      // process your message
-      console.log("Message id : " + id);
-      console.log(msg);
-      console.log("Receive from Worker %s", cluster.worker.id);
-      next()
-    });
-
-    // optional error listeners
-    worker.on('error', function( err, msg ){
-        console.log( "ERROR", err, msg.id );
-    });
-    worker.on('exceeded', function( msg ){
-        console.log( "EXCEEDED", msg.id );
-    });
-    worker.on('timeout', function( msg ){
-        console.log( "TIMEOUT", msg.id, msg.rc );
-    });
-
-  server.listen(port, function() {
-    log(chalk.green('Worker %s spawned for port %s.'), cluster.worker.id ,port);
-  });
-}
+});
