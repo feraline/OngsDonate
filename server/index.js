@@ -20,17 +20,16 @@ var app 		    = require('./app.config.js');
 var log 		    = require('./app/utils/log.js');
 
 //Rota de Services
-// var services = require('./backend/routers/services.router.js');
-// app.use('/services', services);
+var users = require('./app/routers/users.router.js');
+app.use('/users', users);
 
 //Rota principal
 app.get('/', function(request, response) {
-  response.json({
-    body: {
-      result:{
-        code: 0,
-        mensagem: constants.MESSAGE_SERVER_CONNECTED
-      }
-    }
-  });
+  console.log('1');
+  var json_obj = {
+    message: "Servidor conectado com sucesso."
+  }
+
+  // response.status(0).json(json_obj);
+  response.json(json_obj);
 });

@@ -10,4 +10,8 @@ function define(name, value) {
     });
 }
 
+define("SUCCESS", 0);
+
+
+
 define("MESSAGE_SERVER_CONNECTED", "Servidor conectado e funcionando");
