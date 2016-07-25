@@ -1,14 +1,23 @@
 var express 			= require('express');
 var router 				= express.Router();
 var validator 			= require('validator');
+var connection    = require('../connection.js');
 
 // Resgata dados do usuário
 router.get('/', function(request, response) {
-  var json_obj = {
-    message: "Você acessou a página de usuário, desculpe mas não existem ações aqui."
-  }
 
-  response.json(json_obj);
+  connection.query('SELECT * FROM user', function(err, rows, fields) {
+    if (err) throw err;
+    var data = [];
+    
+    rows.forEach(function(value, index, ar){
+      data.push(value);
+    });
+
+    var json_obj = data;
+    response.json(json_obj);
+  });
+
 });
 
 // Registra novo usuário
