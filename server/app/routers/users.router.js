@@ -1,15 +1,15 @@
 var express 			= require('express');
 var router 				= express.Router();
-var validator 			= require('validator');
-var connection    = require('../connection.js');
+var validator 		= require('validator');
+var userModel    = require('../models/user.model.js');
 
 // Resgata dados do usuário
 router.get('/', function(request, response) {
-
-  connection.query('SELECT * FROM user', function(err, rows, fields) {
+  var id = 1;
+  userModel.get(id, function(err, rows, fields) {
     if (err) throw err;
     var data = [];
-    
+
     rows.forEach(function(value, index, ar){
       data.push(value);
     });
@@ -17,7 +17,6 @@ router.get('/', function(request, response) {
     var json_obj = data;
     response.json(json_obj);
   });
-
 });
 
 // Registra novo usuário
