@@ -12,6 +12,7 @@ var types = {
 exports.info = function(message){
 	var date = now();
 	write(date + " [INFO] > " + message, false);
+	console.info(message);
 }
 
 /**
@@ -21,6 +22,7 @@ exports.info = function(message){
 exports.error = function(message){
 	var date = now();
 	write(date + " [ERROR] > " + message, 'error');
+	console.error(message);
 }
 
 /**
@@ -30,6 +32,7 @@ exports.error = function(message){
 exports.success = function(message){
 	var date = now();
 	write(date + " [SUCCESS] > " + message, false);
+	console.log(message);
 }
 
 /**
