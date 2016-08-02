@@ -25,7 +25,8 @@
     "body-parser": "^1.15.2",
     "http-server": "^0.9.0",
     "validator": "^5.5.0",
-    "mysql":"^2.11.1"
+    "mysql":"^2.11.1",
+    "md5": "^2.1.0"
   },
   "devDependencies": {
     "nodemon": "^1.9.2"
