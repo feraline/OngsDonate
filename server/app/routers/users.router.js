@@ -26,7 +26,7 @@ router.post('/', function(request, response) {
   var email       = validator.trim(validator.escape(request.body.email));
   var password    = validator.trim(validator.escape(request.body.password));
   var repassword  = validator.trim(validator.escape(request.body.repassword));
-  var params = {name, email, password};
+  var params = {'name': name, 'email': email, 'password': password};
 
   userModel.insert(params, function(err, rows, fields) {
     var json_obj = {
