@@ -1,9 +1,10 @@
 var format 	= require('./format.js');
-var fs 		= require('fs');
+var fs 			= require('fs');
+var colors 	= require('colors');
 
 var types = {
 	message: './logs/message.log',
-	error: './logs/error.log',
+	error: './logs/error.log'
 }
 /**
  * Função responsável por criar logs do tipo INFO
@@ -12,7 +13,7 @@ var types = {
 exports.info = function(message){
 	var date = now();
 	write(date + " [INFO] > " + message, false);
-	console.info(message);
+	console.info(date + colors.blue.bold(" [INFO] > ") + message);
 }
 
 /**
@@ -22,7 +23,7 @@ exports.info = function(message){
 exports.error = function(message){
 	var date = now();
 	write(date + " [ERROR] > " + message, 'error');
-	console.error(message);
+	console.error(date + colors.red.bold(" [ERROR] > ") + message);
 }
 
 /**
@@ -31,8 +32,9 @@ exports.error = function(message){
  */
 exports.success = function(message){
 	var date = now();
+
 	write(date + " [SUCCESS] > " + message, false);
-	console.log(message);
+	console.log(date + colors.green.bold(" [SUCCESS] > ") + message);
 }
 
 /**

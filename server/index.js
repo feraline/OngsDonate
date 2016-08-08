@@ -19,7 +19,7 @@ var constants 	= require('./constants.js');
 var app 		    = require('./app.config.js');
 var log 		    = require('./app/utils/log.js');
 
-log.success("Servidor iniciado");
+log.info("Servidor iniciado");
 
 //Rota de Services
 var users = require('./app/routers/users.router.js');
