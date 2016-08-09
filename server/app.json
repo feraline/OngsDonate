@@ -1,0 +1,7 @@
+{
+  "name": "OngsDonate server",
+  "description": "The server to Ongs Donate",
+  "repository": "https://github.com/Tiago-Marques/OngsDonate.git",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
