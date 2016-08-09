@@ -12,9 +12,16 @@ var allowCors = function(request, response, next){
 	next();
 }
 
-app.listen(9001); //port
+// app.listen(5000); //port
 app.use(allowCors);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
+
+
+app.set('port', (process.env.PORT || 5000));
+
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});

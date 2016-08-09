@@ -15,8 +15,8 @@
 * limitations under the License.
 */
 
-var constants 	= require('./constants.js');
 var app 		    = require('./app.config.js');
+var constants 	= require('./constants.js');
 var log 		    = require('./app/utils/log.js');
 
 log.info("Servidor iniciado");
