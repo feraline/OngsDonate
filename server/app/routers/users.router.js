@@ -3,6 +3,7 @@ var router 				= express.Router();
 var validator 		= require('validator');
 var userModel     = require('../models/user.model.js');
 var crypto        = require('../utils/security.js');
+var log 		      = require('../utils/log.js');
 
 // Resgata dados do usuário
 router.get('/', function(request, response) {
